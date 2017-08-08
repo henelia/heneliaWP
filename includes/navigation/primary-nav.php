@@ -1,0 +1,135 @@
+<div class="navbar navbar-default">
+	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".primary-nav-container">
+		<span class="sr-only">Menu</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	</button>
+	<nav class="primary-nav-container navbar-collapse collapse">
+		<ul id="primary-nav" class="nav navbar-nav"> 
+			<?php
+				// Création de la nav
+				$primary_nav_config = array(
+					'theme_location'  => 'primary',
+					'menu'            => '',
+					'container'       => '',
+					'container_class' => '',
+					'container_id'    => '',
+					'menu_class'      => '',
+					'menu_id'         => '',
+					'echo'            => true,
+					'fallback_cb'     => '',
+					'before'          => '',
+					'after'           => '',
+					'link_before'     => '',
+					'link_after'      => '',
+					'items_wrap'      => '%3$s',
+					'depth'           => 3,
+					'walker'          => new Primary_Walker()
+				);
+				wp_nav_menu( $primary_nav_config );
+			?>
+		</ul>
+	</nav>
+</div>
+<?php
+	// Walker du Primary nav
+	class Primary_Walker extends Walker_Nav_Menu {
+
+		/*----------  Création des UL  ----------*/
+		
+		function start_lvl( &$output, $depth = 0, $args = array() ) {
+
+			// indentation du code
+			$indent = ( $depth > 0  ? str_repeat( "\t", $depth ) : '' );
+			// parceque l'index commence à 0
+			$display_depth = ( $depth + 2);
+			// classes communes et en fonction de la profondeur
+			$class_names = 'header-nav-list primary-nav-list_l' . $display_depth . ' primary-nav-list dropdown-menu';
+			// construction du <ul>
+			$output .= "\n" . $indent . '<ul class="' . $class_names . '">' . "\n";
+
+		} // end start_lvl()
+
+		/*----------  Création des LI et A  ----------*/
+		
+		function start_el(  &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+
+			/*----------  Général  ----------*/
+			
+			// indentation du code
+			$indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' );
+
+			// parceque l'index commence à 0
+			$display_depth = ( $depth + 1);
+
+			// classes communes et en fonction de la profondeur avec $display_depth
+			$depth_class_names = 'header-nav-item primary-nav-item primary-nav-item_l' . $display_depth;
+			
+			/*----------  Reset wordpress class  ----------*/
+			// Reset des class wordpress pour les adaptés à la CSS ou Framework (Bootstrap)
+
+			// classes wordpress
+			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+			
+			// supprime tous les classes sauf celles précisées dans le tableau
+			$clean_classes = is_array($classes) ? array_intersect($classes, array('current-menu-item','menu-item-has-children','current-menu-parent')) : '';
+			
+			// correpondance avec de nouvelles classes
+			$new_classes = array(
+				'current-menu-item' => 'is-active',
+				'menu-item-has-children' => 'dropdown is-parent',
+				'current-menu-parent' => 'is-active',
+				'current-post-parent' => 'is-active'
+			);
+
+			// indique à wordpress d'utiliser les nouvelles classes
+			$clean_classes = str_replace(array_keys($new_classes), $new_classes, $clean_classes);
+			$class_names = esc_attr( implode(' ', apply_filters('nav_menu_css_class', array_filter($clean_classes ), $item)));
+			
+			/*----------  Construction du <li>  ----------*/
+			
+			$output .= $indent . '<li class="' . $depth_class_names . ' ' . $class_names . '">';
+
+			/*----------  Construction des <a>  ----------*/
+
+			$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+			$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+			$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+			$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+
+				// si c'est un item parent
+				if ( in_array('dropdown is-parent', $clean_classes) ) {
+
+					$item_output = sprintf( '%1$s<a%2$s class="header-nav-link primary-nav-link primary-nav-link_l'.$display_depth.' dropdown-toggle" data-toggle="dropdown" aria-expanded="false">%3$s%4$s%5$s%6$s%7$s</a>%8$s',
+						$args->before,
+						$attributes,
+						$args->link_before,
+						'<span class="header-nav-link-inner primary-nav-link-inner primary-nav-link-inner_l' . $display_depth . '">',
+						apply_filters( 'the_title', $item->title, $item->ID ),
+						'</span>',
+						$args->link_after,
+						$args->after
+					);
+				// si ce n'est pas un parent
+				} else {
+
+					$item_output = sprintf( '%1$s<a%2$s class="header-nav-link primary-nav-link primary-nav-link_l'.$display_depth.'">%3$s%4$s%5$s%6$s%7$s</a>%8$s',
+						$args->before,
+						$attributes,
+						$args->link_before,
+						'<span class="header-nav-link-inner primary-nav-link-inner primary-nav-link-inner_l' . $display_depth . '">',
+						apply_filters( 'the_title', $item->title, $item->ID ),
+						'</span>',
+						$args->link_after,
+						$args->after
+					);
+				}
+
+			// indique à wordpress la nouvelle structure à utiliser
+			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+
+		} // end start_el()
+
+	} // end Primary_Walker()
+?>
