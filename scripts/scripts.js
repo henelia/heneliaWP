@@ -60,6 +60,16 @@ jQuery(document).ready(function() {
 	});
 	
 	/*=====  End of Menu  ======*/
+
+	/*===============================
+	=            WYSIWYG            =
+	===============================*/
+	
+	jQuery('.wp-wysiwyg iframe').each(function() {
+		jQuery(this).wrap('<div class="embed-responsive embed-responsive-16by9">');
+	});
+	
+	/*=====  End of WYSIWYG  ======*/
 	
 	
 	

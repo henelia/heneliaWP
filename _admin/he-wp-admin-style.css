@@ -1,0 +1,30 @@
+/**
+*
+* Style spécifique à l'administration de wordpress
+*
+*
+* Il est possible d'ajouter des styles dans l'administration, vous pouvez aussi cibler les roles utilisateurs via une class sur le body, généré par le plugin Henelia
+*
+**/
+
+/*===============================
+=            Tiny_MCE           =
+===============================*/
+#tinymce {
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+.lead {
+	font-size: 120%;
+	font-weight: 300;
+}
+
+/* Bouton */
+.btn-wysiwyg, .mce-content-body a.btn-wysiwyg[data-mce-selected] {
+	display: inline-block;
+	padding: 5px 20px;
+	background-color: #000;
+	color:#fff;
+	text-decoration: none;
+}
+
+/*=====  FIN Tiny_MCE  ======*/

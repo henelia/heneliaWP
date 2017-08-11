@@ -1,4 +1,4 @@
-<ul id="footer-nav" class="footer-nav-list reset-list">
+<ul id="footer-nav" class="footer-nav-list list-unstyled">
 	<?php
 		// Création de la nav
 		$footer_shortcuts_config = array(

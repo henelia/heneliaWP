@@ -9,6 +9,10 @@
 =            Helpers & Reset            =
 =======================================*/
 
+/*----------  Wysiwyg  ----------*/
+.wp-wysiwyg {
+	overflow: hidden;
+}
 
 /*----------  SVG  ----------*/
 svg {
@@ -82,10 +86,14 @@ img {
 	max-width: 100%;
 	height: auto;
 }
+img {
+	max-width: 100%;
+	height: auto;
+}
 
 /* Gestion des images dans les wyziwyg */
 /* Beaucoup trop de !important, bah ouai, mais bon encore et tjrs le style inline */
-.align-left {
+.alignleft {
 	text-align: center;
 	float: none;
 	margin-bottom: 10px;
@@ -99,7 +107,7 @@ img {
 	}
 }
 
-.align-right {
+.alignright {
 	text-align: center;
 	float: none;
 	margin-bottom: 15px;
@@ -116,6 +124,8 @@ img {
 /*----------  Gestion des iframes  ----------*/
 iframe{
 	max-width: 100%;
+	border: 0;
+	margin: 0 0 ($line-height-computed / 2);
 }
 .embed-responsive{
 	margin-bottom: 10px;

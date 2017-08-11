@@ -1,4 +1,4 @@
-<ul id="secondary-nav" class="header-nav-list secondary-nav-list secondary-nav-list_l1 reset-list no-first">
+<ul id="secondary-nav" class="header-nav-list secondary-nav-list secondary-nav-list_l1 list-unstyled">
 	<?php
 		// Création de la nav
 		$secondary_menu_config = array(

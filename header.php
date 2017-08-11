@@ -62,9 +62,11 @@
 	</ul>
 	<!--[if lte IE 9]><div class="alert-ie"><p class="mt0"><strong>Attention ! </strong> Votre navigateur (Internet Explorer 9 ou inférieur) présente de sérieuses lacunes en terme de sécurité et de performances, dues à son obsolescence. En conséquence, ce site sera consultable mais de manière moins optimale qu'avec un navigateur récent&nbsp;: <a href="http://www.browserforthebetter.com/download.html">Internet&nbsp;Explorer&nbsp;10 et +</a>, <a href="http://www.mozilla.org/fr/firefox/new/">Firefox</a>, <a href="https://www.google.com/intl/fr/chrome/browser/">Chrome</a>, <a href="http://www.apple.com/fr/safari/">Safari</a>,...</p></div><![endif]-->
 	<header class="header">
-		<a href="/" class="logo" title="<?php echo $title; ?>">
-			<?php echo file_get_contents(get_bloginfo('template_directory').'/images/logo.svg'); ?>
-		</a>
-		<?php display_secondary_nav() ?>
-		<?php display_primary_nav() ?>
+		<div class="container">
+			<a href="/" class="logo" title="<?php echo $title; ?>">
+				<?php echo file_get_contents(get_bloginfo('template_directory').'/images/logo.svg'); ?>
+			</a>
+			<?php display_secondary_nav() ?>
+			<?php display_primary_nav() ?>
+		</div>
 	</header>

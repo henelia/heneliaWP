@@ -2,6 +2,7 @@
 
 /**
  *
+ * fonction spécifique au projet
  * Chargement des templates includes et fonction d'affichage en front
  *
  * - Body
@@ -52,25 +53,25 @@ add_action( 'init', 'add_menu' );
 // Affiche du menu Primary
 function display_primary_nav()
 {
-    include (get_template_directory().'/includes/navigation/primary-nav.php');
+    include (get_template_directory().'/_templates/navigation/primary-nav.php');
 }
 
 // Affiche du menu Secondary
 function display_secondary_nav()
 {
-    include (get_template_directory().'/includes/navigation/secondary-nav.php');
+    include (get_template_directory().'/_templates/navigation/secondary-nav.php');
 }
 
 // Affiche du menu Footer
 function display_footer_nav()
 {
-    include (get_template_directory().'/includes/navigation/footer-nav.php');
+    include (get_template_directory().'/_templates/navigation/footer-nav.php');
 }
 
 // Affiche du menu Name
 // function display_name_nav()
 // {
-//     include (get_template_directory().'/includes/navigation/_ex_name-nav.php');
+//     include (get_template_directory().'/_templates/navigation/_ex_name-nav.php');
 // }
 
 /*=====  End of MENU  ======*/
@@ -93,19 +94,5 @@ function display_footer_nav()
 // });
 
 /*=====  End of Aside  ======*/
-
-
-/*===========================
-=            SVG            =
-===========================*/
-
-/* Autoriser les fichiers SVG */
-function svg_mime_types($mimes) {
-  $mimes['svg'] = 'image/svg+xml';
-  return $mimes;
-}
-add_filter('upload_mimes', 'svg_mime_types');
-
-/*=====  End of SVG  ======*/
 
 ?>
