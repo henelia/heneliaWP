@@ -12,7 +12,7 @@
 				<?php } ?>
 				<?php the_tags( ' | <strong>Tag :</strong> ', ', ', ''); ?>
 			</p>
-			<?php the_post_thumbnail(); ?>
+			<div class="post-thumbnail"><?php the_post_thumbnail(); ?></div>
 			<div class="wp-wysiwyg">
 				<?php the_content(); ?>
 			</div>

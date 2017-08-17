@@ -18,23 +18,47 @@ add_filter( 'tiny_mce_before_init', 'tinymce_he_styles' );
         // liste des styles
         $style_formats = array(  
             array(  
-                'title' => 'Bouton',  
+                'title' => 'Bouton (Lien)',  
                 'selector' => 'a',  
-                'classes' => 'btn-wysiwyg btn btn-default',
+                'classes' => 'wysiwyg-btn btn btn-default',
                 'wrapper' => false          
             ),
             array(  
                 'title' => 'Paragraphe intro',  
                 'block' => 'p',  
-                'classes' => 'lead',
+                'classes' => 'wysiwyg-lead lead',
                 'wrapper' => false          
             ),
-            // array(  
-            //     'title' => 'espace 30px',  
-            //     'inline' => 'hr',  
-            //     'classes' => 'separator-30',
-            //     'wrapper' => false          
-            // ),
+            array(  
+                'title' => 'Ligne transparente (petite)',  
+                'selector' => 'hr',  
+                'classes' => 'wysiwyg-separator separator-small',
+                'wrapper' => false          
+            ),
+            array(  
+                'title' => 'Ligne transparente (medium)',  
+                'selector' => 'hr',  
+                'classes' => 'wysiwyg-separator separator-medium',
+                'wrapper' => false          
+            ),
+            array(  
+                'title' => 'Ligne transparente (grande)',  
+                'selector' => 'hr',  
+                'classes' => 'wysiwyg-separator separator-large',
+                'wrapper' => false          
+            ),
+            array(  
+                'title' => 'Texte rouge',  
+                'inline' => 'span',  
+                'classes' => 'wysiwyg-red text-red',
+                'wrapper' => false          
+            ),
+            array(  
+                'title' => 'Texte bleu',  
+                'inline' => 'span',  
+                'classes' => 'wysiwyg-blue text-blue',
+                'wrapper' => false          
+            ),
         );      
         // mise à jour tu tableau en paramétre (JSON encodage)
         $init_array['style_formats'] = json_encode( $style_formats );  

@@ -81,17 +81,17 @@ function display_footer_nav()
 =            Aside            =
 =============================*/
 
-// add_action( 'widgets_init', function() {
-// 	register_sidebar( array(
-// 		'name'          => 'Barre latérale',
-// 		'id'            => 'aside',
-// 		'description'   => 'Ajouter les widgets ici pour les afficher dans la Barre latérale',
-// 		'before_widget' => '<aside class="aside %1$s %2$s" role="complementary">',
-// 		'after_widget'  => '</aside>',
-// 		'before_title'  => '<p class="box-title">',
-// 		'after_title'   => '</p>',
-// 	) );
-// });
+add_action( 'widgets_init', function() {
+	register_sidebar( array(
+		'name'          => 'Barre latérale',
+		'id'            => 'aside',
+		'description'   => 'Ajouter les widgets ici pour les afficher dans la Barre latérale',
+		'before_widget' => '<aside class="aside %1$s %2$s" role="complementary">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<p class="box-title">',
+		'after_title'   => '</p>',
+	) );
+});
 
 /*=====  End of Aside  ======*/
 

@@ -66,11 +66,40 @@ svg {
 	font-size: 140%;
 }
 
+/*----------  Separator  ----------*/
+
 hr{
 	border-top: 1px solid $text-color;
 	clear: both;
 	margin-top: 30px;
 	margin-bottom: 30px;
+}
+
+.wysiwyg-separator {
+	margin: 0;
+	border: 0;
+	background-color: transparent;
+}
+
+.separator-small {
+	height: 10px;
+}
+.separator-medium {
+	height: 20px;
+}
+.separator-large {
+	height: 30px;
+}
+@media (min-width: $screen-sm) {
+	.separator-small {
+		height: 20px;
+	}
+	.separator-medium {
+		height: 40px;
+	}
+	.separator-large {
+		height: 60px;
+	}
 }
 
 /*----------  Links  ----------*/

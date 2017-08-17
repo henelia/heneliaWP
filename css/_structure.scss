@@ -142,4 +142,24 @@
 	margin-left: 30px;
 }
 
+/* Wysiwyg */
+.text-blue {
+	color: #0089ff;
+}
+.text-red {
+	color: #ce1c13;
+}
+
+/* Post */
+
+.post-thumbnail {
+	height: 250px;
+	overflow: hidden;
+
+	img {
+	height: 250px;
+	object-fit: cover;		
+	}
+}
+
 /*=====  End of PROTOTYPE  ======*/
