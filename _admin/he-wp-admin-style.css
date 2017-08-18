@@ -7,6 +7,20 @@
 *
 **/
 
+/*=========================================
+=            Page de connexion            =
+=========================================*/
+
+.login h1 a {
+	background-image: url('../images/logo-login-320-150.png');
+	background-size: initial;
+	background-position: center top;
+	width:320px;
+	height:150px;
+}
+
+/*=====  End of Page de connexion  ======*/
+
 /*===============================
 =            Tiny_MCE           =
 ===============================*/
@@ -22,13 +36,14 @@
 	font-weight: 300;
 }
 
-.wysiwyg-red {
-	color: red;
-}
-
-.wysiwyg-blue {
-	color: blue;
-}
+.wysiwyg-orange { color: #e79e20; }
+.wysiwyg-orange-light { color: #f8b87a; }
+.wysiwyg-orange-dark { color: #e77920; }
+.wysiwyg-green { color: #5ebd12; }
+.wysiwyg-red { color: #eb212e; }
+.wysiwyg-blue { color: #337ab7; }
+.wysiwyg-gray-light { color: #8e8e8e; }
+.wysiwyg-gray-dark { color: #2c2c2c; }
 
 /* Bouton */
 .wysiwyg-btn, .mce-content-body a.wysiwyg-btn[data-mce-selected] {
