@@ -59,8 +59,8 @@ function frontend_assets(){
     // Jquery
     /* Remplacement du jQuery Wordpress par le dernier à jour */
     wp_deregister_script('jquery');
-    wp_register_script('jquery', ("http://code.jquery.com/jquery-latest.min.js"), NULL, false);
-    wp_enqueue_script('jquery', ("http://code.jquery.com/jquery-latest.min.js"), false, NULL, true);
+    wp_register_script('jquery', ("https://code.jquery.com/jquery-latest.min.js"), NULL, false);
+    wp_enqueue_script('jquery', ("https://code.jquery.com/jquery-latest.min.js"), false, NULL, true);
 
     // Scripts projet
     wp_register_script('custom', get_template_directory_uri().'/scripts/scripts.min.js', array( 'jquery' ), '1.0.0', false);
